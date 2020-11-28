@@ -92,37 +92,42 @@ background-position: center; background-attachment: fixed; background-size: 100%
 
 
 <script>
+   /* --- script starts here--*/
+  var username;
   /* --- reset function starts here--*/
+
+  console.log('username' + username)
   function reset() {
 
-    document.getElementById('username').value = null;
+    document.getElementById('username').value = '';
 
     document.getElementById('name').innerHTML = '';
-    document.getElementById('lastanswer').innerHTML = null;
+    document.getElementById('lastanswer').innerHTML = '';
     document.getElementById('ques').value = '';
 
   }
-  /* --- Enter function starts here--*/
+  /* --- Enter username  function starts here--*/
 
   function enter() {
 
-    var username = document.getElementById('username').value;
-
+    username = document.getElementById('username').value;
     var uname = (username == ' ') ? "Welcome" : document.getElementById('name').innerHTML = "Welcome" + " " + username + "<br>";
-
 
   }
 
   /* --- Answer function starts here--*/
   function answer() {
-    var username = document.getElementById('username').value;
-
     var ques = document.getElementById('ques').value;
     var num = Number(ques);
     console.log(ques);
     console.log(num);
+    console.log('username' + username)
+    if (username == undefined) {
+      console.log('username')
+      document.getElementById('lastanswer').innerHTML = ' Enter user name first';
+    }
 
-    if (ques.length > 9 && isNaN(ques)) {
+    else if (ques.length > 9 && isNaN(ques)) {
       var ans = ['It is not Certain', 'It is decidedly so', 'Cannot predict now', 'Do not count on it', 'Signs point to yes', 'No Doubt', 'sorry ask another one', 'choose another one', 'Very doubtful', ' Most likely', ' My reply is no', 'My sources say no', 'Outlook good', 'Ask again later', 'Better not tell you now'];
       var randomNumber = Math.floor(Math.random() * 14);
       console.log(randomNumber);
@@ -131,7 +136,7 @@ background-position: center; background-attachment: fixed; background-size: 100%
 
     }
     else {
-      document.getElementById('lastanswer').innerHTML = 'Enter Valid Question';
+      document.getElementById('lastanswer').innerHTML = 'Enter Valid Question ';
     }
   }
 
