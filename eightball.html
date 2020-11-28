@@ -1,0 +1,141 @@
+<!Doctype html>
+<html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+<head>
+  <title> 8 Ball </title>
+</head>
+
+<body style="background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #bcc9a0);;;
+background-position: center; background-attachment: fixed; background-size: 100% 100%;  ">
+
+  <!-- Text--!-->
+
+  <h1 style="text-align: center; font-size: 40px; font-family: 'Sofia' "> 8 Magic balls </h1>
+
+
+  <!-- Image--!-->
+  <img src="magic-8-ball-gif-8.gif"
+    style="width: 320px;height: 300px; margin-top: 80px; margin-right:0px; float: left; margin-left: 30px; border-radius: 50%;"><br>
+  <br>
+
+
+  <fieldset
+    style="width: 400px; border-radius: 20px; height: 510px; margin-top: 0px; text-align: center; float: right; margin-right: 50px;">
+    <legend style="font-size: 30px;font: italic;text-align: center;"> <b> Check Your Fortune </b> </legend>
+    <!-- User Name--!-->
+    <p style="font-size: 20px; margin-top: 15px;"> <b> Enter User Name Here </b> </p> <input id="username"
+      style="width: 240px;background: transparent; border-radius: 5px; margin-left: 20px; height: 35px;" />
+
+    <br>
+    <!-- Enter function starts here--!-->
+    <button onclick="enter()"
+      style="margin-top: 25px; border-radius: 9px; color: #EADEDB; height: 30px; font-size: 17px; margin-right: 30px;background-color: rgb(49, 142, 218); width: 150px;">
+      Submit</button><br>
+    <!-- Enter function ends here--!-->
+    <p id="name" style="margin-top: 25px; font-size: large;"> </p>
+
+
+    <!-- Options(by using drop down)--
+    
+    <select style="margin-top: 25px;" id="sel">
+      <option hidden disabled selected value> -- Select a Question Here -- </option>
+
+      <option value="Will I go jail? "> Will I go jail?</option>
+
+      <option value="Will I go Foreign? "> Will I go Foreign?</option>
+
+      <option value="When I Buy an iphone ? "> When I Buy an iphone ?</option>
+
+      <option value="Will I go jail? "> Will I get job?</option>
+
+      <option value="Will I go Goa? "> Will I go Goa?</option>
+
+      <option value="Will I get Bonus This Year? "> Will I get Bonus This Year?</option>
+
+      <option value="Will I die this year? "> Will I die this year?</option>
+
+      <option value="Will I get married this year? "> Will I get married this year?</option>
+
+      <option value="Will I visit Any temple this year? "> Will I visit Any temple this year?</option>
+
+      <option value="When I have 10k followers?"> When I have 10k followers?</option>
+
+      <option value="Will I open My own company? "> Will I open My own company?</option>
+
+      <option value=" Will I buy an ktm?"> Will I buy an ktm?</option>
+
+      <option value="Will I be an Engineer?"> Will I be an Engineer?</option>
+
+      <option value="Will Covid-19 end this year? "> Will Covid-19 end this year?</option>
+
+    </select>!-->
+
+
+    <p style="font-size: 20px; margin-top: 15px;"> <b> Enter Question Here </b> </p> <input type="text" id="ques"
+      style="width: 240px;background: transparent; border-radius: 5px; margin-left: 20px; height: 35px;" />
+
+    <br> <br> <!-- answer function starts here--!-->
+    <button onclick="answer()" id="ga"
+      style="margin-top: 10px; border-radius: 9px; color: #EADEDB; height: 30px; font-size: 17px; margin-right: 30px;background-color: rgb(230, 53, 41); width: 190px;">
+      Generate Answer</button><br>
+     <!-- answer function ends here--!-->
+    <p id="lastanswer"> </p><br><br>
+     <!-- reset function starts here--!-->
+    <button onclick="reset()"
+      style="margin-top: 10px; text-align: center; border-radius: 10px; color: #EADEDB; height: 30px; font-size: 16px; margin-right: 30px;background-color: rgb(85, 85, 207); width: 100px;">
+      Clear</button>  <!-- reset function ends here--!-->
+  </fieldset>
+
+</body>
+
+
+
+<script>
+  /* --- reset function starts here--*/
+  function reset() {
+
+    document.getElementById('username').value = null;
+
+    document.getElementById('name').innerHTML = '';
+    document.getElementById('lastanswer').innerHTML = null;
+    document.getElementById('ques').value = '';
+
+  }
+  /* --- Enter function starts here--*/
+
+  function enter() {
+
+    var username = document.getElementById('username').value;
+
+    var uname = (username == ' ') ? "Welcome" : document.getElementById('name').innerHTML = "Welcome" + " " + username + "<br>";
+
+
+  }
+
+  /* --- Answer function starts here--*/
+  function answer() {
+    var username = document.getElementById('username').value;
+
+    var ques = document.getElementById('ques').value;
+    var num = Number(ques);
+    console.log(ques);
+    console.log(num);
+
+    if (ques.length > 9 && isNaN(ques)) {
+      var ans = ['It is not Certain', 'It is decidedly so', 'Cannot predict now', 'Do not count on it', 'Signs point to yes', 'No Doubt', 'sorry ask another one', 'choose another one', 'Very doubtful', ' Most likely', ' My reply is no', 'My sources say no', 'Outlook good', 'Ask again later', 'Better not tell you now'];
+      var randomNumber = Math.floor(Math.random() * 14);
+      console.log(randomNumber);
+      var an = ans[randomNumber];
+      document.getElementById('lastanswer').innerHTML = an;
+
+    }
+    else {
+      document.getElementById('lastanswer').innerHTML = 'Enter Valid Question';
+    }
+  }
+
+
+</script>
+
+</html>
